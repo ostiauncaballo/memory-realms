@@ -9,3 +9,11 @@ Java and Spring Boot.
 ## Project status
 
 Initial setup.
+
+## Development Environment
+
+- Java 25
+- Node 24
+- Docker 29
+- React TBD
+- Spring Boot TBD
