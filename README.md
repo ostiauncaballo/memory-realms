@@ -8,12 +8,14 @@ Java and Spring Boot.
 
 ## Project status
 
-Initial setup.
+Adding and updating technology stack documentation. Preparing the environment.
 
 ## Development Environment
 
-- Java 25
-- Node 24
-- Docker 29
+- IntelliJ IDEA 2026.2
+- Windows 10
+- Java 25.0.3
+- Node 24.18.0
+- Docker 29.6.1
 - React TBD
 - Spring Boot TBD
