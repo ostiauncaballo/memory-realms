@@ -7,8 +7,8 @@
   align-items: center;
   gap: 2rem;
 
-  width: min(calc(100% - 2rem), 1280px);
-  margin: 2.5rem auto 0;
+  width: min(calc(100% - 2rem), 1500px);
+  margin: 1.5rem auto 0;
   padding: 1.5rem 2rem;
 
   border: 1px solid rgba(255, 218, 0, 0.16);

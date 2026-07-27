@@ -10,7 +10,10 @@ export function MemoryReel() {
                     Latest stories
                 </h2>
 
-                <a className="memory-reel__view-all" href="#">
+                <a
+                    className="memory-reel__view-all"
+                    href="#"
+                >
                     View all
                 </a>
             </div>
@@ -22,6 +25,16 @@ export function MemoryReel() {
                         memory={memory}
                     />
                 ))}
+            </div>
+
+            <div className="memory-reel__actions">
+                <button
+                    className="memory-reel__share-button"
+                    type="button"
+                >
+                    <span aria-hidden="true">＋</span>
+                    Share your story
+                </button>
             </div>
         </section>
     )
