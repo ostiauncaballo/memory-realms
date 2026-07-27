@@ -1,36 +1,70 @@
-import './Header.css';
+import { NavLink } from 'react-router'
+import './Header.css'
 
 export function Header() {
-  return (
-      <header className="header">
-        <a className="brand" href="#" aria-label="Memory Realms home">
-          <span className="brand__icon">◇</span>
-          <span>Memory Realms</span>
-        </a>
+    return (
+        <header className="header">
+            <NavLink className="brand" to="/">
+                <span className="brand__icon">◇</span>
+                <span>Memory Realms</span>
+            </NavLink>
 
-        <nav className="navigation" aria-label="Main navigation">
-          <a className="navigation__link navigation__link--active" href="#">
-            Home
-          </a>
-          <a className="navigation__link" href="#">
-            Stories
-          </a>
-          <a className="navigation__link" href="#">
-            Collections
-          </a>
-          <a className="navigation__link" href="#">
-            About
-          </a>
-        </nav>
+            <nav className="navigation" aria-label="Main navigation">
+                <NavLink
+                    className={({ isActive }) =>
+                        `navigation__link${isActive ? ' navigation__link--active' : ''}`
+                    }
+                    to="/"
+                    end
+                >
+                    Home
+                </NavLink>
 
-        <div className="header__actions">
-          <input
-              className="search"
-              type="search"
-              aria-label="Search stories"
-              placeholder="Search stories..."
-          />
-        </div>
-      </header>
-  )
+                <NavLink
+                    className={({ isActive }) =>
+                        `navigation__link${isActive ? ' navigation__link--active' : ''}`
+                    }
+                    to="/stories"
+                >
+                    Stories
+                </NavLink>
+
+                <NavLink
+                    className={({ isActive }) =>
+                        `navigation__link${isActive ? ' navigation__link--active' : ''}`
+                    }
+                    to="/collections"
+                >
+                    Collections
+                </NavLink>
+
+                <NavLink
+                    className={({ isActive }) =>
+                        `navigation__link${isActive ? ' navigation__link--active' : ''}`
+                    }
+                    to="/tags"
+                >
+                    Tags
+                </NavLink>
+
+                <NavLink
+                    className={({ isActive }) =>
+                        `navigation__link${isActive ? ' navigation__link--active' : ''}`
+                    }
+                    to="/about"
+                >
+                    About
+                </NavLink>
+            </nav>
+
+            <div className="header__actions">
+                <input
+                    className="search"
+                    type="search"
+                    aria-label="Search stories"
+                    placeholder="Search stories..."
+                />
+            </div>
+        </header>
+    )
 }

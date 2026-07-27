@@ -1,21 +1,26 @@
+import { Route, Routes } from 'react-router'
+import { MainLayout } from './layouts/MainLayout'
+import { AboutPage } from './pages/AboutPage'
+import { CollectionsPage } from './pages/CollectionsPage'
+import { HomePage } from './pages/HomePage'
+import { NotFoundPage } from './pages/NotFoundPage'
+import { StoriesPage } from './pages/StoriesPage'
+import { TagsPage } from './pages/TagsPage'
 import './App.css'
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { MemoryReel } from './components/MemoryReel'
+import './pages/pages.css'
 
 function App() {
     return (
-        <div className="app">
-            <Header />
-
-            <main className="app__main">
-                <Hero />
-                <MemoryReel />
-            </main>
-
-            <Footer />
-        </div>
+        <Routes>
+            <Route element={<MainLayout />}>
+                <Route index element={<HomePage />} />
+                <Route path="stories" element={<StoriesPage />} />
+                <Route path="collections" element={<CollectionsPage />} />
+                <Route path="tags" element={<TagsPage />} />
+                <Route path="about" element={<AboutPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Route>
+        </Routes>
     )
 }
 
