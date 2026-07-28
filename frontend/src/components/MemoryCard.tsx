@@ -1,8 +1,8 @@
-import type { SampleMemory } from '../data/sampleMemories'
+import type {Memory} from "../domain/Memory.ts";
 import './MemoryCard.css'
 
 type MemoryCardProps = {
-  memory: SampleMemory
+  memory: Memory
 }
 
 export function MemoryCard({ memory }: MemoryCardProps) {

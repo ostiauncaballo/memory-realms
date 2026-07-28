@@ -1,15 +1,6 @@
-export type SampleMemory = {
-  id: number
-  title: string
-  universe: string
-  description: string
-  image: string
-  comments: number
-  likes: number
-  rating: number
-}
+import type { Memory } from '../domain/Memory'
 
-export const sampleMemories: SampleMemory[] = [
+export const sampleMemories: Memory[] = [
   {
     id: 1,
     title: 'The Lost Temple of Chotec',
