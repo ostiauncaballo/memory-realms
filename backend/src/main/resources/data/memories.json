@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "The Lost Temple of Chotec",
+    "universe": "Role-playing",
+    "description": "Our party faced ancient traps and forgotten guardians.",
+    "content": null,
+    "image": "/images/lost-temple.jpg",
+    "comments": 12,
+    "likes": 28,
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "title": "Icecrown Citadel Raid Night",
+    "universe": "World of Warcraft",
+    "description": "An unforgettable night with the guild.",
+    "content": null,
+    "image": "/images/icecrown.jpg",
+    "comments": 7,
+    "likes": 15,
+    "rating": 4.6
+  },
+  {
+    "id": 3,
+    "title": "The stories of Los Aventureros",
+    "universe": "Role-playing",
+    "description": "Our young party finally reached the old castle after surviving the enchanted forest and making an unexpected dinosaur friend.",
+    "content": null,
+    "image": "/images/los-aventureros.jpg",
+    "comments": 18,
+    "likes": 42,
+    "rating": 4.8
+  },
+  {
+    "id": 4,
+    "title": "The Druids of Thunder Bluff",
+    "universe": "World of Warcraft",
+    "description": "It started with one druid sitting by the lake. Minutes later, the entire place was filled with bears sharing one of those spontaneous MMO moments nobody forgets.",
+    "content": null,
+    "image": "/images/thunderbluff-druids.jpg",
+    "comments": 27,
+    "likes": 88,
+    "rating": 4.9
+  },
+  {
+    "id": 5,
+    "title": "Skyclaws Over the Lost Jungle",
+    "universe": "Warhammer Age of Sigmar",
+    "description": "The Terradon riders soared between ancient cliffs and misty waterfalls, searching the forgotten jungle below.",
+    "content": null,
+    "image": "/images/terrosaurios.jpg",
+    "comments": 6,
+    "likes": 18,
+    "rating": 4.7
+  }
+]
