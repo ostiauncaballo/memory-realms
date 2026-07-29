@@ -7,7 +7,6 @@ import io.github.ostiauncaballo.memoryrealms.memory.service.MemoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,18 +27,16 @@ class MemoryControllerTest {
     @Mock
     private MemoryService memoryService;
 
-    @InjectMocks
-    private MemoryController memoryController;
-
     @BeforeEach
     void setUp() {
+        MemoryController memoryController = new MemoryController(memoryService);
         mockMvc = MockMvcBuilders.standaloneSetup(memoryController)
                 .setControllerAdvice(new GlobalExceptionHandler())
                 .build();
     }
 
     @Test
-    void getAllMemories_shouldReturn200AndJsonArray() throws Exception {
+    void shouldReturnAllMemoriesWhenRequested() throws Exception {
         List<Memory> memories = List.of(
                 new Memory(1L, "The Lost Temple of Chotec", "Role-playing",
                         "Our party faced ancient traps and forgotten guardians.",
@@ -60,7 +57,7 @@ class MemoryControllerTest {
     }
 
     @Test
-    void getAllMemories_whenEmpty_shouldReturn200AndEmptyArray() throws Exception {
+    void shouldReturnEmptyArrayWhenNoMemoriesExist() throws Exception {
         when(memoryService.getAllMemories()).thenReturn(List.of());
 
         mockMvc.perform(get("/api/memories"))
@@ -70,7 +67,7 @@ class MemoryControllerTest {
     }
 
     @Test
-    void getMemoryById_withExistingId_shouldReturn200AndMemory() throws Exception {
+    void shouldReturnMemoryWhenIdExists() throws Exception {
         Memory memory = new Memory(1L, "The Lost Temple of Chotec", "Role-playing",
                 "Our party faced ancient traps and forgotten guardians.",
                 null, "/images/lost-temple.jpg", 12, 28, 4.8);
@@ -89,11 +86,14 @@ class MemoryControllerTest {
     }
 
     @Test
-    void getMemoryById_withNonExistingId_shouldReturn404() throws Exception {
+    void shouldReturnProblemDetailWhenMemoryNotFound() throws Exception {
         when(memoryService.getMemoryById(999L))
                 .thenThrow(new MemoryNotFoundException(999L));
 
         mockMvc.perform(get("/api/memories/999"))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.title").value("Memory not found"))
+                .andExpect(jsonPath("$.detail").value("Memory not found with id: 999"))
+                .andExpect(jsonPath("$.instance").value("/api/memories/999"));
     }
 }

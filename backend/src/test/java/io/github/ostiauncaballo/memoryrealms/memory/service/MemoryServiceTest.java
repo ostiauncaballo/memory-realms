@@ -12,8 +12,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class MemoryServiceTest {
@@ -25,11 +27,11 @@ class MemoryServiceTest {
 
     @BeforeEach
     void setUp() {
-        memoryService = new MemoryServiceImpl(memoryRepository);
+        memoryService = new MemoryService(memoryRepository);
     }
 
     @Test
-    void getAllMemories_shouldReturnAllMemories() {
+    void shouldReturnAllMemoriesWhenRequested() {
         List<Memory> expectedMemories = List.of(
                 new Memory(1L, "Test", "Test", "Test", null, "test.jpg", 0, 0, 0.0)
         );
@@ -42,7 +44,7 @@ class MemoryServiceTest {
     }
 
     @Test
-    void getMemoryById_withExistingId_shouldReturnMemory() {
+    void shouldReturnMemoryWhenIdExists() {
         Memory expectedMemory = new Memory(1L, "Test", "Test", "Test", null, "test.jpg", 0, 0, 0.0);
         when(memoryRepository.findById(1L)).thenReturn(Optional.of(expectedMemory));
 
@@ -53,7 +55,7 @@ class MemoryServiceTest {
     }
 
     @Test
-    void getMemoryById_withNonExistingId_shouldThrowException() {
+    void shouldThrowExceptionWhenIdDoesNotExist() {
         when(memoryRepository.findById(999L)).thenReturn(Optional.empty());
 
         MemoryNotFoundException exception = assertThrows(

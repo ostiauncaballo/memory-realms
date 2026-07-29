@@ -1,13 +1,27 @@
 package io.github.ostiauncaballo.memoryrealms.memory.service;
 
+import io.github.ostiauncaballo.memoryrealms.memory.exception.MemoryNotFoundException;
 import io.github.ostiauncaballo.memoryrealms.memory.model.Memory;
+import io.github.ostiauncaballo.memoryrealms.memory.repository.MemoryRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface MemoryService {
+@Service
+public class MemoryService {
 
-    List<Memory> getAllMemories();
+    private final MemoryRepository memoryRepository;
 
-    Memory getMemoryById(Long id);
+    public MemoryService(MemoryRepository memoryRepository) {
+        this.memoryRepository = memoryRepository;
+    }
+
+    public List<Memory> getAllMemories() {
+        return memoryRepository.findAll();
+    }
+
+    public Memory getMemoryById(Long id) {
+        return memoryRepository.findById(id)
+                .orElseThrow(() -> new MemoryNotFoundException(id));
+    }
 }
