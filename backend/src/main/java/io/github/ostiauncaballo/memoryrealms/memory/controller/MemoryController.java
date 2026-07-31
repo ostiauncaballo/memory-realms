@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/memories")
-@CrossOrigin(origins = "http://localhost:5173") // TODO: Create WebConfig for CORS
 public class MemoryController {
 
     private final MemoryService memoryService;
