@@ -17,5 +17,5 @@ Adding and updating technology stack documentation. Preparing the environment.
 - Java 25.0.3
 - Node 24.18.0
 - Docker 29.6.1
-- React TBD
-- Spring Boot TBD
+- React 19.2.7
+- Spring Boot 4.1.0

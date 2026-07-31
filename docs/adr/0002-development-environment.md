@@ -32,6 +32,7 @@ The objective is to minimise onboarding time and ensure every developer has the 
 ### IntelliJ Plugins
 
 - Maven
+  - Wrapper or plugin
 - Git
 - Docker
 - Markdown
@@ -39,15 +40,16 @@ The objective is to minimise onboarding time and ensure every developer has the 
 
 ### Essential Keyboard Shortcuts
 
-| Action | Shortcut |
-|---------|----------|
-| Go to File | `Ctrl + Shift + N` |
-| Find in File | `Ctrl + F` |
-| Next Occurrence | `F3` |
-| Find Usages | `Alt + F7` |
-| Select Next Tab | `Alt + Right` |
-| Select Previous Tab | `Alt + Left` |
-| Close Tab | `Ctrl + F4` |
+| Action              | Shortcut           |
+|---------------------|--------------------|
+| Go to File          | `Ctrl + Shift + R` |
+| Find in File        | `Ctrl + H`         |
+| Next Occurrence     | `Ctrl + K`         |
+| Find Usages         | `Alt + Shift + G`  |
+| Select Next Tab     | `Ctrl + AvPag`     |
+| Select Previous Tab | `Ctrl + RePag`     |
+| Close Tab           | `Ctrl + W`         |
+| Comment line        | `Ctrl + Shift + C` |
 
 ## Consequences
 
